@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 
 public class Hardware {
 	
-	public CANTalon talonThree;
+	public CANTalon talonThree; //left or right?
 	public CANTalon talonFive;
 	
 	Hardware() {
