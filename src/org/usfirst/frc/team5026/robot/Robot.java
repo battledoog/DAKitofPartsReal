@@ -6,6 +6,7 @@ import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,7 +30,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
 		hardware = new Hardware();
-        drive = new Drive(hardware.talonFive, hardware.talonThree); //double check left right
+        drive = new Drive(hardware.leftMotor, hardware.rightMotor);
     }
 	
 	/**
@@ -77,6 +78,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("joystickY", Robot.oi.joystick.getY());
+        SmartDashboard.putNumber("joystickX", Robot.oi.joystick.getX());
     }
     
     /**

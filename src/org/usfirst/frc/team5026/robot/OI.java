@@ -10,7 +10,7 @@ public class OI {
 	public MyJoystick joystick;
 	
 	public OI() {
-		joystick = new MyJoystick(0);
+		joystick = new MyJoystick(Constants.PORT, Constants.DEADZONEX, Constants.DEADZONEY, Constants.DRIVEMOTORSDEADZONE, Constants.JOYSTICKXSCALING, Constants.JOYSTICKYSCALING);
 	}
 }
 

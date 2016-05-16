@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj.CANTalon;
 
 public class Hardware {
 	
-	public CANTalon talonThree; //left or right?
-	public CANTalon talonFive;
+	public CANTalon leftMotor; //talon 3
+	public CANTalon rightMotor; //talon 5
 	
 	Hardware() {
-		talonThree= new CANTalon(3);
-		talonFive = new CANTalon(5);
+		leftMotor= new CANTalon(3);
+		rightMotor = new CANTalon(5);
 	}
 	
 }
