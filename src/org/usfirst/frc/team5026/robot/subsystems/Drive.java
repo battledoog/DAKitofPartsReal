@@ -15,7 +15,7 @@ public class Drive extends Subsystem {
 	}
 	
 	public void myArcadeDrive(double xAxis, double yAxis) {
-		drive.arcadeDrive(yAxis, xAxis);
+		drive.arcadeDrive(-yAxis, -xAxis);
 	}
 	public void setLeftRightMotor(double leftMotor, double rightMotor) {
 		drive.setLeftRightMotorOutputs(leftMotor, rightMotor);

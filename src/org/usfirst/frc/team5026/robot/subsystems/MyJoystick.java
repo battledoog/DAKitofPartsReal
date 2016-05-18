@@ -1,4 +1,6 @@
 package org.usfirst.frc.team5026.robot.subsystems;
+import org.usfirst.frc.team5026.robot.Robot;
+
 import edu.wpi.first.wpilibj.Joystick;
 
 public class MyJoystick extends Joystick {
@@ -18,5 +20,20 @@ public class MyJoystick extends Joystick {
 		scalingY = joystickYScaling;
 		motorDeadZone = driveMotorsDeadZone;
 		powerOfOne = 1;	
+	}
+	
+	public double getModX() {
+		double value = getX();
+		if(value <= m_deadzoneX) {
+			Robot.drive.setLeftRightMotor(0.0, 0.0);
+		}
+		return value;
+	}
+	public double getModY() {
+		double value = getY();
+		if(value <= m_deadzoneY) {
+			Robot.drive.setLeftRightMotor(0.0, 0.0);
+		}
+		return value;
 	}
 }

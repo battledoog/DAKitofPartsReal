@@ -18,7 +18,7 @@ public class ArcadeDrive extends Command {
     }
     
     protected void execute() {
-    	Robot.drive.myArcadeDrive(Robot.oi.joystick.getX(), Robot.oi.joystick.getY());
+    	Robot.drive.myArcadeDrive(Robot.oi.joystick.getModX(), Robot.oi.joystick.getModY());
     }
     
     protected boolean isFinished() {

@@ -12,6 +12,6 @@ public class ForwardAndCarve extends CommandGroup {
     
     public  ForwardAndCarve() {
       addSequential(new DriveStraight(0.3, 2));
-      addSequential(new DriveCarve(0.3, 5, true)); 
+      addSequential(new DriveCarve(2, 5, false)); 
     }
 }
