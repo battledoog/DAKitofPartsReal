@@ -1,11 +1,14 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.autonomous.ForwardAndCarve;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -17,6 +20,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
+	Command forwardAndCarve;
+	SendableChooser autoChooser;
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
@@ -31,6 +36,10 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		hardware = new Hardware();
         drive = new Drive(hardware.leftMotor, hardware.rightMotor);
+    
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("drift", new ForwardAndCarve());
+        SmartDashboard.putData("Auto Chooser", autoChooser);
     }
 	
 	/**
@@ -56,7 +65,8 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        
+        forwardAndCarve = (Command) autoChooser.getSelected();
+        forwardAndCarve.start();
     }
 
     /**
