@@ -9,8 +9,8 @@ public class MyJoystick extends Joystick {
 	public double m_deadzoneX;
 	public double m_deadzoneY;
 	double motorDeadZone;
-	double scalingX = 0.5; // slope of joystick curve
-	double scalingY = 1; // slope of joystick curve
+	double scalingX;
+	double scalingY; // slope of joystick curve
 	
 	public MyJoystick(int port, double deadzoneX, double deadzoneY, double driveMotorsDeadZone, double joystickXScaling, double joystickYScaling) {
 		super(port);
@@ -24,15 +24,15 @@ public class MyJoystick extends Joystick {
 	
 	public double getModX() {
 		double value = getX();
-		if(value <= m_deadzoneX && value <= motorDeadZone) {
-			value = 0;
+		if(Math.abs(value) <= m_deadzoneX || Math.abs(value) <= motorDeadZone) {
+			return 0;
 		}
 		return value * scalingX;
 	}
 	public double getModY() {
 		double value = getY();
-		if(value <= m_deadzoneY && value <= motorDeadZone) {
-			value = 0;
+		if(Math.abs(value) <= m_deadzoneY || Math.abs(value) <= motorDeadZone) {
+			return 0;
 		}
 		return value * scalingY;
 	}
