@@ -24,14 +24,14 @@ public class MyJoystick extends Joystick {
 	
 	public double getModX() {
 		double value = getX();
-		if(value <= m_deadzoneX) {
+		if(value <= m_deadzoneX && value <= motorDeadZone) {
 			value = 0;
 		}
 		return value;
 	}
 	public double getModY() {
 		double value = getY();
-		if(value <= m_deadzoneY) {
+		if(value <= m_deadzoneY && value <= motorDeadZone) {
 			value = 0;
 		}
 		return value;
