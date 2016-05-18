@@ -27,13 +27,13 @@ public class MyJoystick extends Joystick {
 		if(value <= m_deadzoneX && value <= motorDeadZone) {
 			value = 0;
 		}
-		return value;
+		return value * scalingX;
 	}
 	public double getModY() {
 		double value = getY();
 		if(value <= m_deadzoneY && value <= motorDeadZone) {
 			value = 0;
 		}
-		return value;
+		return value * scalingY;
 	}
 }
